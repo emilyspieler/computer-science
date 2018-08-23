@@ -1,0 +1,128 @@
+In your own words, explain what clean code is and why it is important.
+
+// Clean code is important because it adds readability, ease of use, and better collaborative aspects to your code. It makes you a better developer because you are considering the fact that other developers may also be looking at your code and you want to make everything simple for them to dive into.
+
+Read this article about Toyota and their use of bad code.
+Although you may not yet understand all of the topics discussed,
+think about another commonly used object that relies on computers
+and explain what would happen if the code was not created to an acceptable standard.
+
+// Airplanes are another commonly used object that relies heavily (almost entirely) on computers. Without acceptable code, everything from reading radars to plane mechanics could not operate successfully. Additionally, if the code can’t quickly account for less-than-ideal situations due to bug vulnerability or poor practices, none of these parts would be able to operate successfully,
+
+Would you consider the following to be clean code? Explain why or why not. If not, refactor the code.
+
+3. No, there is an excessive amount of comments which indicates poor readability. It also lacks any indentation that signifies it’s flow.
+
+FUNCTION do(x, y)
+ IF y = "F" THEN
+   SET z to (x−32) * (5/9)
+   PRINT z
+ ELSE IF y = "C" THEN
+   SET z to x * 1.8000 + 32.00
+   PRINT z
+  END IF
+END FUNCTION
+
+
+4. The code is clean and readable. There are indentations where appropriate, and there aren’t any conflicts with DRY.
+
+FUNCTION calcPercent(sum, total)
+ IF NOT(total = 0) THEN
+    SET percentage to sum / total * 100
+ ELSE
+    PRINT "Sorry, cannot divide by 0"
+ END IF
+
+ PRINT percentage
+END FUNCTION
+
+
+Using pseudocode, refactor the code for the following examples using the principles you have learned in this checkpoint.
+
+a. The following function prints the subtotal of a customer's transaction and receives payment accordingly. (method extraction)
+
+FUNCTION checkOutCustomer(subTotal, discountRate)
+  PRINT "Your total due is: " + subTotal * discountRate + (subTotal * tax)
+END FUNCTION
+
+FUNCTION customerPays(subTotal, discountRate, paymentType)
+  IF paymentType = 'CASH' THEN
+     CALL getPayment RETURNING amount
+     PRINT "Change due: " + amount - subTotal * discountRate + (subTotal * tax)
+  ELSE IF paymentType = 'CREDIT CARD' THEN
+     CALL getPayment RETURNING amount
+     PRINT "Your credit card has been charged: " + subTotal * discountRate + (subTotal * tax)
+   END IF
+END FUNCTION
+
+b. (appropriate nesting)
+
+FUNCTION checkoutBook(book, guest)
+ IF guest.accountActive AND IF NOT(guest.hasOverdueBooks) AND IF guest.outstandingFees = 0 THEN
+    APPEND book to guest.books
+      SET book.status to "Checked Out"
+      PRINT "Your books have been issued."
+  END IF
+  ELSE
+     PRINT "Unable to check out book."
+ END IF
+END FUNCTION
+
+c. (don’t over engineer)
+
+CLASS BankAccount
+
+ FUNCTION displayBalance
+  IF guest.deposit THEN
+	SET balance to balance + amount
+	  PRINT balance
+  END IF
+  ELSE IF balance > amount THEN
+    SET balance to balance - amount
+	  PRINT balance
+  END IF
+ END FUNCTION
+
+ FUNCTION customerPaymentMethod
+   IF NOT(customer.hasCreditCard) THEN
+     CALL offerCreditCard
+   END IF NOT(customer.hasCheckingAccount) THEN
+     CALL offerCheckingAccount
+   END IF
+ END FUNCTION
+
+ ....
+ ....
+ ....
+
+END
+
+6. Square Given an array of integers, find out whether the sum of the integers is a perfect square. If it is a perfect square, return the square root, otherwise return the sum.
+let isSquare = function (integer) {
+  if (integer > 0 && Math.sqrt(integer) % 1 === 0) {
+    return Math.sqrt(integer)
+  }
+  else {
+    return (integer) + (integer);
+  }
+};
+
+console.log(isSquare(16));
+
+7.
+
+var arrayValue = [1,4,5,6]
+
+function isDuplicate (array) {
+  var arrayValue = [];
+  for (var i = 0; i < array.length; ++i) {
+    var loopValue = array[i];
+    if (arrayValue.indexOf(loopValue) !== -1) {
+      return true;
+    }
+    arrayValue.push(loopValue);
+  }
+  return false;
+}
+
+console.log(isDuplicate(arrayValue));
