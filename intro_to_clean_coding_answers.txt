@@ -74,12 +74,12 @@ CLASS BankAccount
 
  FUNCTION displayBalance
   IF guest.deposit THEN
-	SET balance to balance + amount
-	  PRINT balance
+    SET balance to balance + amount
+    PRINT balance
   END IF
   ELSE IF balance > amount THEN
     SET balance to balance - amount
-	  PRINT balance
+    PRINT balance
   END IF
  END FUNCTION
 
@@ -98,6 +98,7 @@ CLASS BankAccount
 END
 
 6. Square Given an array of integers, find out whether the sum of the integers is a perfect square. If it is a perfect square, return the square root, otherwise return the sum.
+
 let isSquare = function (integer) {
   if (integer > 0 && Math.sqrt(integer) % 1 === 0) {
     return Math.sqrt(integer)
