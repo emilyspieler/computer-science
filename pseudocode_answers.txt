@@ -37,11 +37,13 @@ END
 
 Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
 
-const phoneName = [
+const addressBook = [
   {name: 'karen brown', number: '222-222-3333'},
   {name: 'steve smith', number: '111-222-3333'}
 ];
 
-const entry = phoneName.find( person => person.name === 'steve smith' );
+const contactName = 'karen brown';
 
-console.log(entry);
+const contactInformation = addressBook.find( person => person.name === contactName );
+
+console.log(contactInformation);
