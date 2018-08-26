@@ -1,0 +1,70 @@
+A line of people at an amusement park ride.
+
+The line is composed of members, represented as strings.
+There is a front to the line, as well as a back.
+When someone enters the line, place them at the end.
+People may leave the line whenever they see fit, and those behind them take their place.
+Given the above real-world information, use an array data structure to code the following solution.
+
+a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+
+INIT park_riders to an empty array
+SET park_riders[FIRST INDEX] to Vivian
+SET park_riders[SECOND INDEX] to Ava
+SET park_riders[THIRD INDEX] to Josh
+SET park_riders[FOURTH INDEX] to Patrick
+SET park_riders[FIFTH INDEX] to Mike
+
+
+b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
+
+INIT park_riders to an empty array
+SET park_riders[FIRST INDEX] to Vivian
+SET park_riders[SECOND INDEX] to Ava
+SET park_riders[THIRD INDEX] to Josh
+SET park_riders[FOURTH INDEX] to Patrick
+SET park_riders[FIFTH INDEX] to Mike
+SET park_riders[SIXTH INDEX] to Mary
+
+c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
+
+FUNCTION locate JOSH
+  RETURN INDEX OF 3
+  print INDEX OF 3
+END FUNCTION
+
+d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
+
+FUNCTION locate "EMILY"
+  if UNDEFINED
+    RETURN 'not listed'
+    print "not listed"
+END FUNCTION
+
+e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
+
+FUNCTION add park_riders "MELISSA"
+  INSERT park_riders[SECOND INDEX] to MELISSA
+  RETURN park_riders
+END FUNCTION
+
+
+f) If Patrick wants to leave the line, how would you delete him from the array?
+
+FUNCTION delete park_riders "PATRICK"
+  REMOVE park_riders[FOURTH INDEX] to PATRICK
+  RETURN park_riders
+END FUNCTION
+
+Provide another real-world example that you can model using a data structure.
+
+INIT departing_flights to an empty array
+SET departing_flights[FIRST INDEX] to United 803
+SET departing_flights[SECOND INDEX] to Delta 2043
+SET departing_flights[THIRD INDEX] to American Airlines 9040
+
+How would your data structure allow developers to access and manipulate the data?
+
+My data structure would allow developers to access and manipulate data because they can see a list of flight departure orders listed, and use that array to both review the list and change, if need be.
+If they needed to change the order due to a mechanical issue or departure change, they would be able to search and alter accordingly. Ties would not be an issue because,
+although flights might be close together, they cannot take off from the same runway at the same time without colliding.
