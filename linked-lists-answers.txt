@@ -1,0 +1,88 @@
+What are some pros and cons of using linked lists instead of arrays?
+
+Pros: They can grow to immense sizes and can handle larger amounts of data.
+
+Cons: inefficient access an element within the list because each node many exist anywhere within the physical memory.
+
+Come up with a real world example of a linked list.
+
+The history section of web browsers--it creates a linked list of web-pages visited, so that when you check history or press back button, the previous node's data is fetched.
+
+The linked list push function should take a value,
+create a node, and add it to the end of a list.
+Below is pseudocode for a push function for a singly linked list.
+However, there is something wrong with it.
+Submit both an explanation of the bug and a functional implementation of the method.
+
+FUNCTION push(element)
+  CREATE node
+  SET node.value TO element
+  SET node.next TO null
+
+IF the head node does not exist
+ THEN SET head to node
+ELSE
+ SET current to head
+ SET current.next to node
+END IF
+END FUNCTION
+
+The current function is asking each new node to be added to head. Instead it should be added to end.
+
+Instead:
+
+FUNCTION push(element)
+  CREATE node
+  SET node.value TO element
+  SET node.next TO null
+
+IF the end node does not exist
+ THEN SET end to node
+ELSE
+ SET current to end
+ SET current.next to node
+END IF
+END FUNCTION
+
+Given an unsorted singly linked list, remove all duplicates from the linked list.
+Example
+Input: a -> c -> d -> d -> a
+Output: a -> c -> d
+
+var duplicate = ['a', 'b', 'c', 'a']
+
+function removeDuplicate(list) {
+    var seen = {};
+    return list.filter(function(item) {
+        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+}
+
+console.log(removeDuplicate(duplicate));
+
+Given an unsorted singly linked list, reverse it.
+Example
+Input: a -> b -> c -> d
+Output: d -> c -> b -> a
+
+var reverseList = function(head) {
+    var result = null;
+    var stack = [];
+
+    var current = head;
+    while (current) {
+        stack.push(current);
+        current = current.next;
+    }
+
+
+    result = stack.pop() || [];
+    current = result;
+
+    while (current) {
+        current.next = stack.pop();
+        current = current.next;
+    }
+
+    return result;
+};
