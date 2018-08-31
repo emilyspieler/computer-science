@@ -2,57 +2,86 @@ Using proper pseudo-code, describe the following primitive algorithms:
 
 Making coffee;
 
-(I don't drink coffee so I actually had to google how to make coffee since I've never made it! :) )
+(I don't drink coffee so I actually had to google how to make coffee since I've never made it! haha! Hopefully this is an accurate depiction of the process :) )
 
+Function fillPot(water)
 Turn On Water
-Pour water into coffee pot
-End water pouring when water reaches the 8 mark
-Fill coffee maker with water
-Put Down Coffee pot
-remove coffee filter bin from coffee maker
-Pick Up Coffee Filter
-Place coffee Filter in coffee filter bin
-Pick up coffee mix
-measure 2.5 tablespoons of coffee mix
-place mix in Filter bin on top of filter
-Place filter bin inside coffee maker
-place coffee pot on coffee maker
-turn on coffee maker
-turn off when coffee brew is complete
+SET water TO on
+  While water is ON
+    Pour water into coffee.pot
+  END while
+
+Function fillCoffeeMaker(coffee.beans)
+  GET coffee.beans
+  GET coffee.filter
+    WHILE coffee.filter Empty
+      SET coffee.beans in filter
+    END While
+END FUNCTION
+
+function addIngredientsToPot(coffee.pot)
+  GET coffee.filter
+    IF coffee.filter is FULL
+      Place coffee.filter in coffee.machine
+    END IF
+  GET coffee.pot
+    if coffee.pot is FULL
+      Pour water in coffee.pot
+      Place empty coffee.pot on heater
+  END IF
+END Function
+
+function makeCoffee(coffee)
+  if coffee.filter is FULL && coffee.pot is FULL
+    Turn on coffee.machine
+    Return coffee
+  END IF
 
 
 Washing dishes;
 
-Turn on sink
-pick up disk
-place in sink
-grab soap from counter
-grab sponge from counter
-squirt soap onto sponge
-pick up dish
-run dish under hot Water
-while water is running, spread soap around dish with sponge
-repeat for 10-15 seconds
-put down sponge on counter
-place dish in trying rack
-turn off Water
+Function washDishes(dish)
+  Turn On dish.water
+  Pick up disk dish.soap
+  SET dish.water TO on
+    While dish.water is ON
+      Pick up dish
+      place dish.soap on dish
+      spread dish.soap on dish
+      remove dish.soap with dish.water
+    END while
+  Turn off dish.Water
+END FUNCTION
 
 
 A choice of your own.
 
-getting on the train at my train stop to go downtown:
+Getting on the train at my train stop to go downtown:
 
-approach train station entrance
-remove train pass from wallet
-approach turn-style
-place train pass against train pass scanner
-train pass scanner will beep when pass has been verified
-enter turn-style
-walk towards right staircase
-walk up staircase
-wait at train platform for train
-train will come every 5-10 minutes
-when train comes, enter through doors.
+Function enterTrainStation(CTA)
+  ENTER CTA.station
+  GET CTA.pass FROM user.wallet
+    WHILE CTA.pass === Ready
+      SHOW CTA.gate user CTA.pass
+      Return "verified- please enter"
+      Enter CTA.gate
+    END While
+END FUNCTION
+
+function enterTrain(brownLine)
+  ENTER CTA.brownLine
+  if CTA.brownLine === Kimball
+    Walk upstairs
+  else
+    return "do not board train, you are going the wrong way"
+  END IF
+END FUNCTION
+
+function boardTrain(kimball)
+  For each CTA.kimball
+    return Enter train
+  END
+END FUNCTION
 
 
 As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation.
@@ -60,9 +89,9 @@ Name three companies who created an algorithm that made them successful, e.g., G
 It doesn't need to be a tech example (such as a recipe or manufacturing a product).
 Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
 
-Netflix- predicts what movies/tv viewers will like based on their current selections and preferences.
-Match.com - uses different algorithms to predict who may be a better match for you, and use that for browsing patterns
-Facebook- uses algorithms to predict likely preference patterns with consumers based on demographic and search information
+Netflix- predicts what movies/tv viewers will like based on their current selections and preferences. This helps generate their sales and target each users personalized experience
+Match.com - uses different algorithms to predict who may be a better match for you, and use that for browsing patterns. This is unique because it increases the potential for success in matches, which increases brand reputation and overall customer satisfaction.
+Facebook- uses algorithms to predict likely preference patterns with consumers based on demographic and search information. This helps serve facebook's advertisers and is a unique way for brands to hit their target audiences
 
 Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
 
