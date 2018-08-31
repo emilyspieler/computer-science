@@ -27,21 +27,19 @@ ELSE
 END IF
 END FUNCTION
 
-The current function is asking each new node to be added to head. Instead it should be added to end.
-
-Instead:
+Instead: Since a Linked List is typically represented by the head of it, we have to traverse the list till end and then change the next of last node to new node.
 
 FUNCTION push(element)
   CREATE node
-  SET node.value TO element
-  SET node.next TO null
+    SET node.value TO element
+    SET node.next TO null
 
-IF the end node does not exist
- THEN SET end to node
-ELSE
- SET current to end
- SET current.next to node
-END IF
+  IF the head node does not exist
+    THEN SET head to null
+    WHILE node.next = null
+    Set Node = Node.next
+    Return Node.next = new.Node
+  END IF
 END FUNCTION
 
 Given an unsorted singly linked list, remove all duplicates from the linked list.
@@ -49,40 +47,135 @@ Example
 Input: a -> c -> d -> d -> a
 Output: a -> c -> d
 
-var duplicate = ['a', 'b', 'c', 'a']
-
-function removeDuplicate(list) {
-    var seen = {};
-    return list.filter(function(item) {
-        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
-    });
+function LinkedList(){
+    this.head = null;
 }
 
-console.log(removeDuplicate(duplicate));
+LinkedList.prototype = {
+    insert:function(val){
+        var item = {
+            value:val,
+            next:null
+        }
+
+        if (this.head == null){
+            this.head = item;
+            return;
+        }else{
+            current = this.head;
+            while(current.next != null){
+                current = current.next;
+            }// end of while
+            current.next = item;
+        }
+    },
+
+
+    showAllElements:function(){
+        if (this.head == null) return;
+        var current = this.head, i = 1;
+        while(current.next != null){
+            console.log('The element at position ' + i + ' has value ' + current.value);
+            current = current.next;
+            i++;
+        }
+
+        console.log('The element at position ' + i + ' has value ' + current.value);
+     }
+
+
+
+}
+function setup(){
+        var list = new LinkedList();
+
+        list.insert(3);
+        list.insert(3);
+        list.insert(2);
+        list.insert(5);
+        list.insert(4);
+        list.insert(5);
+
+
+        var current = list.head, arr = [], prev,next;
+
+        while(current.next != null){
+            if (arr.indexOf(current.value) == -1){
+                arr.push(current.value);
+            }else{
+                if (prev){
+                    prev.next = current.next;
+                }
+            }
+            prev = current;
+            current  = current.next;
+        }
+
+
+        if (current.next == null){
+            if (arr.indexOf(current.value) != -1){
+                prev.next = null;
+            }
+        }
+
+        list.showAllElements();
+    }
+console.log(setup());
+
 
 Given an unsorted singly linked list, reverse it.
 Example
 Input: a -> b -> c -> d
 Output: d -> c -> b -> a
 
-var reverseList = function(head) {
-    var result = null;
-    var stack = [];
+function LinkedList(){
+    this.head = null;
+}
 
-    var current = head;
-    while (current) {
-        stack.push(current);
-        current = current.next;
+LinkedList.prototype = {
+    insert:function(val){
+        var item = {
+            value:val,
+            next:null
+        }
+
+        if (this.head == null){
+            this.head = item;
+            return;
+        }else{
+            current = this.head;
+            while(current.next != null){
+                current = current.next;
+            }// end of while
+            current.next = item;
+        }
     }
+}
 
-
-    result = stack.pop() || [];
-    current = result;
-
-    while (current) {
-        current.next = stack.pop();
-        current = current.next;
+function reverse(head) {
+    new_head = head;
+    old_head = head.next;
+    new_head.next = null; // Terminate cycle.
+    while (old_head) {
+        current = old_head;
+        old_head = old_head.next;
+        current.next = new_head;
+        new_head = current;
     }
+    return new_head;
+}
 
-    return result;
-};
+function node(val) {
+    this.val = val;
+    this.next = null;
+}
+
+
+a = new node("a");
+b = new node("b");
+c = new node("c");
+
+a.next = b; b.next = c;
+a = reverse(a);
+
+console.log(c);

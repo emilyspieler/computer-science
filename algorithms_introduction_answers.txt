@@ -1,0 +1,69 @@
+Using proper pseudo-code, describe the following primitive algorithms:
+
+Making coffee;
+
+(I don't drink coffee so I actually had to google how to make coffee since I've never made it! :) )
+
+Turn On Water
+Pour water into coffee pot
+End water pouring when water reaches the 8 mark
+Fill coffee maker with water
+Put Down Coffee pot
+remove coffee filter bin from coffee maker
+Pick Up Coffee Filter
+Place coffee Filter in coffee filter bin
+Pick up coffee mix
+measure 2.5 tablespoons of coffee mix
+place mix in Filter bin on top of filter
+Place filter bin inside coffee maker
+place coffee pot on coffee maker
+turn on coffee maker
+turn off when coffee brew is complete
+
+
+Washing dishes;
+
+Turn on sink
+pick up disk
+place in sink
+grab soap from counter
+grab sponge from counter
+squirt soap onto sponge
+pick up dish
+run dish under hot Water
+while water is running, spread soap around dish with sponge
+repeat for 10-15 seconds
+put down sponge on counter
+place dish in trying rack
+turn off Water
+
+
+A choice of your own.
+
+getting on the train at my train stop to go downtown:
+
+approach train station entrance
+remove train pass from wallet
+approach turn-style
+place train pass against train pass scanner
+train pass scanner will beep when pass has been verified
+enter turn-style
+walk towards right staircase
+walk up staircase
+wait at train platform for train
+train will come every 5-10 minutes
+when train comes, enter through doors.
+
+
+As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation.
+Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm.
+It doesn't need to be a tech example (such as a recipe or manufacturing a product).
+Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+Netflix- predicts what movies/tv viewers will like based on their current selections and preferences.
+Match.com - uses different algorithms to predict who may be a better match for you, and use that for browsing patterns
+Facebook- uses algorithms to predict likely preference patterns with consumers based on demographic and search information
+
+Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+Algorithms are efficient if they are able to use up less resources. This can be measured in speed, memory, etc. Inefficient algorithms use up more resources, whether it be memory, time, money, etc.

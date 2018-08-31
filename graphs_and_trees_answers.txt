@@ -1,0 +1,111 @@
+What is a binary tree and what makes it unique to other trees?
+
+A Binary tree is a data structure in which each Node may point to a left child and a right child.
+
+What is a heuristic?
+
+Heuristics are guesses that an algorithm makes to solve a complex problem sooner by sacrificing accuracy.
+
+What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+Another problem besides shortest-path that may require heuristics would be certain route avoidance-- the best way to get to a destination without crossing a certain street or using a certain road.
+
+What is the difference between a depth-first search and a breadth-first search?
+
+depth first search is:  Starts at the root and explores as far as possible along each branch before backtracking.
+breadth first search is: Starts at the tree root and explore the neighbor nodes first, before moving to the next level neighbors.
+
+Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+A undirected, a-cyclic, unweighted graph is a graph that does not assign a cost between variables, where the nodes form a loop, and the directional allows 2 directions of travel.
+
+What kind of graph is a binary search tree?
+
+A tree is a undirected, A-cyclic, and weighted graph.
+
+Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+Example: The value 10 exists in the tree. The value 23 does not exist in the tree.
+
+1. check, whether value in current node and searched value are equal. If so, value is found.
+Otherwise...
+
+2. if searched value is less, than the node's value:
+  -if current node has no left child, searched value doesn't exist in the BST;
+  -otherwise, handle the left child with the same algorithm.
+
+3. if a new value is greater, than the node's value:
+  -if current node has no right child, searched value doesn't exist in the BST;
+  -otherwise, handle the right child with the same algorithm.
+
+  class Node {
+      constructor(value = null, left = null, right = null) {
+          this.value = value;
+          this.right = right;
+          this.left = left;
+      }
+
+      toString() {
+          return JSON.stringify(this);
+      }
+  }
+
+  class BST {
+      constructor(node = null) {
+          this.root = node;
+      }
+
+  recursivePreOrder(process) {
+          let preOrder = (node) => {
+              process.call(this, node);
+
+              if(node.left !== null) {
+                  preOrder(node.left);
+              }
+
+              if(node.right !== null) {
+                  preOrder(node.right);
+              }
+          }
+
+          preOrder(this.root);
+      }
+
+    find(value) {
+          let result;
+          let traverse = (node) => {
+              if (node === null) {
+                  return;
+              } else if (node.value === value) {
+                  result = node;
+              } else if (value < node.value) {
+                  traverse(node.left);
+              } else if (value > node.value) {
+                  traverse(node.right);
+              }
+          };
+          traverse(this.root);
+          return result;
+      }
+  }
+
+  let binaryTree = new Node(8, 9, 10);
+  console.log(binaryTree);
+
+  let rootValue = new BST (8, 9, 10);
+  console.log(rootValue);
+
+Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+Example: The distance between the nodes 4 and 10 is 4. The distance between the nodes 8 and 10 is 1. The distance between the nodes 1 and 14 is 4.
+
+
+
+
+FUNCTION findDistance(n1, n2)
+  SET top to last ancestor of n1 and n2
+  SET count1 to the number of nodes from top to n1
+  SET count2 to the number of nodes from top to n2
+  SET distance to count1 + count2
+  RETURN distance
+END FUNCTION
