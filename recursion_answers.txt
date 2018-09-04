@@ -1,0 +1,82 @@
+Define and compare recursion and iteration.
+
+Recursion: Is where a procedure calls itself with parameters moving towards one of the base cases.
+
+Iteration: Is utilizing a loop to repeat a process
+
+Most algorithms can be implemented both ways, but Recursive solutions run a little slower and may have a few more limitations.
+Iterative solutions, however, are tricker to implement.
+
+Name five algorithms that are commonly implemented by recursion.
+
+1. The factorial operation
+2. The fibonacci sequence
+3. Greatest Common Divisor
+4. Recursive Binary Search
+5. Reversing a String
+
+When should you use recursion, and when should you avoid recursion? Give examples for each.
+
+When to use: when an algorithm can be defined as a combination of su-results, starting with known cases. (IE: fibonacci sequence)
+When iteration is better: Loops are great for algorithms that require running straight through a data set, so an algorithm requiring a pass over a solution is ideal in this situation (IE: finding the maximum)
+
+Compare the recursive and iterative solutions to the three algorithms from the checkpoint (factorial, maximum, and fibonacci). What is similar, and what is different?
+
+factorial:
+
+Similarities: Both are able to be pseudocoded in just a few lines of clean code.
+Differences: Recursion takes just a few lines of code to implement, and it's easy to address the base case of how to handle negatives. With the recursive version, the procedure fails at negative numbers (which it should do). In the iterative version, we keep a running result variable tracking the calculations.
+
+maximum:
+
+Similarities: Both locate the maximum number in a collection.
+Differences: The iterative version of this code is much cleaner. The iterative code runs more efficiently than the recursive version.
+
+fibonacci:
+
+Similarities: Both return final number that the function calls for.
+Differences: Recursive starts with base cases. Recursive option runs a little slower with the constant calls on each problem throughout the function.
+
+Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection.
+
+var multidimensionalArray = new Array(5);
+
+multidimensionalArray[0] = [1 ,2, 3, 4, 5];
+multidimensionalArray[1] = ["a", "b", "d", "c", "s"];
+multidimensionalArray[2] = [1, 1, 0, 43, 67];
+
+function getTotalElementCount (obj) {
+    let count = 0;
+    if (obj instanceof Array) {
+        obj.forEach((elem) => {
+            count += getTotalElementCount(elem);
+        })
+    } else {
+        return 1;
+    }
+    return count;
+}
+
+console.log(getTotalElementCount(multidimensionalArray));
+
+A palindrome is a word or phrase whose spelling is the same either direction (e.g., racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome.
+
+var isPalindrome = function(str) {
+    var strLen = str.length;
+    if (strLen === 0 || strLen === 1) {
+        return true;
+    }
+
+    if (str[0] === str[strLen - 1]) {
+        return isPalindrome( str.slice(1, strLen - 1) );
+    }
+
+    return false;
+};
+
+console.log(isPalindrome('dad')); //returns true
+console.log(isPalindrome('hat')); // returns false
+
+Google Easter Egg: Google the term "recursion". Google will prompt you with "Did you mean: recursion". Explain why this behavior exhibits properties of recursion.
+
+This behavior exhibits properties of recursion because recursion is used to call a function on itself. IE: it is a program which refers to itself in code.
