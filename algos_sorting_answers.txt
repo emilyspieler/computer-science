@@ -1,0 +1,46 @@
+Write pseudocode for bubble sort.
+
+FUNCTION bubbleSort(collection)
+   REPEAT
+     SET swapped to false
+
+     FOR i = FIRST INDEX of collection to LAST INDEX of collection - 1
+
+       IF collection[i] > collection[i + 1] THEN
+         SET tmp to collection[i]
+         SET collection[i] to collection[i + 1]
+         SET collection[i + 1] to tmp
+         SET swapped to true
+       END IF
+     END FOR
+   UNTIL swapped is FALSE
+
+   RETURN collection
+ END FUNCTION
+
+
+Write pseudocode for quicksort.
+
+FUNCTION Quicksort(Data(), Left, Right)
+  IF Left < Right THEN
+    PivotPosition = Partition(Data, Left, Right)
+    QuickSort(Data, Left, PivotPosition -1)
+    QuickSort(Data, PivotPosition + 1, Right)
+  END IF
+END FUNCTION
+
+We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+
+Merge sort and quick sort are efficient sorting algorithms because both have cache-efficiency.
+
+Merge sort is often the best choice for sorting a linked list: it is relatively easy to implement a merge sort in such a way that it requires only Θ(1) extra space. and the slow random-access performance of a linked list makes it better suited over other algorithms.
+QuickSort can work in-place on the original array, using only O(log n) stack space to store the stack frames necessary for recursion. This makes it work extremely well in modern hardware.
+
+All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+Create an empty array.
+Loop through the original array and put each object in a “bucket”.
+Sort each of the non-empty buckets
+Check the buckets in order and then put all objects back into the original array.
+
+Ideal for: Bucket sort is mainly useful when input is uniformly distributed over a range.
