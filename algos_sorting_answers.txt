@@ -29,22 +29,14 @@ FUNCTION quicksort(A, lo, hi) is
 END FUNCTION
 
 FUNCTION partition(A, lo, hi) is
-    pivot := A[lo]
-    i := lo - 1
-    j := hi + 1
-    loop forever
-        do
+    pivot := A[hi]
+    i := lo    
+    for j := lo to hi - 1 do
+        if A[j] < pivot then
+            swap A[i] with A[j]
             i := i + 1
-        while A[i] < pivot
-
-        do
-            j := j - 1
-        while A[j] > pivot
-
-        if i >= j then
-            return j
-
-        swap A[i] with A[j]
+    swap A[i] with A[hi]
+    return i
 END FUNCTION
 
 We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
